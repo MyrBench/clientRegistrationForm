@@ -1,0 +1,14 @@
+.step-button-style{
+    --slds-c-button-brand-color-background: #007CBA;
+    color: white;
+}
+.lightning-button.save-button-style{
+    --slds-c-button-brand-color-background: #3ba755;
+    color: white;
+}
+.step-button-style{
+margin-left: 15px;
+}
+.save-button-style{
+    margin-left: 15px;
+}

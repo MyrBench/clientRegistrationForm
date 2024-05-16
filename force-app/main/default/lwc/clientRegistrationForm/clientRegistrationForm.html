@@ -1,0 +1,52 @@
+<template>
+    <div class="slds-grid slds-wrap slds-p-around_medium">
+        <!-- Step 1  -->
+        <template lwc:if={currentStepEqualToOne}>
+            <c-client-personal-details
+                first-name={personalDetails.firstName} 
+                last-name={personalDetails.lastName} 
+                salutation={personalDetails.salutation} 
+                birthdate={personalDetails.birthdate}
+                ondatachange={handlePersonalDetailsChange}>
+            </c-client-personal-details>
+        </template>
+        <!-- Step 2  -->
+        <template if:true={currentStepEqualToTwo}>
+            <c-client-country-and-phone
+                country={countryAndPhone.country}
+                phone={countryAndPhone.phone}
+                ondatachange={handleCountryAndPhoneChange}>
+            </c-client-country-and-phone>
+        </template>
+        <!-- Step 3 -->
+        <template if:true={currentStepEqualToThree}>
+            <c-client-registration-preview
+                first-name={personalDetails.firstName} 
+                last-name={personalDetails.lastName} 
+                salutation={personalDetails.salutation} 
+                birthdate={personalDetails.birthdate}
+                country={countryAndPhone.country}
+                phone={countryAndPhone.phone}>
+            </c-client-registration-preview>
+        </template>
+
+
+        <!-- Bouton pour retourner à l'étape precedante -->
+        <template lwc:if={displayBack}>
+            <lightning-button class="step-button-style" label="Back" onclick={handleBackStep}></lightning-button>
+        </template>
+        <!-- Bouton pour passer à l'étape suivante -->
+        <template lwc:if={displayNext}>
+            <lightning-button class="step-button-style" label="Next" onclick={handleNextStep}></lightning-button>
+        </template>
+        
+        <template lwc:if={isSaved}>
+            <div>Registration have been saved successfully.</div>
+            <lightning-button class="step-button-style" label="Create a new Registration" onclick={handleNew}></lightning-button>
+        </template>
+        <template lwc:if={currentStepEqualToThree}>
+            <!-- Bouton pour sauvegarder -->
+            <lightning-button class="save-button-style" label="Save" onclick={handleSave}></lightning-button>
+        </template>
+    </div>
+</template>

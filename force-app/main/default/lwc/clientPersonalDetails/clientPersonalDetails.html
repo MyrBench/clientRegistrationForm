@@ -1,0 +1,18 @@
+<template>
+    <lightning-input-name
+    label="Personal Details"
+    first-name={firstName}
+    last-name={lastName}
+    salutation={salutation}
+    name="nameField"
+    options={salutationOptions} 
+    onchange={handlePersconalDetailsChangeName}>
+    </lightning-input-name>
+
+    <lightning-input type="date" 
+    label="Birth Date"
+    value={birthdate}
+    name="birthDate"
+    onchange={handlePersconalDetailsChangeDate}>
+    </lightning-input>
+</template>

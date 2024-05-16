@@ -1,0 +1,17 @@
+<template>
+    <lightning-combobox
+        label="Country"
+        placeholder="Select a country"
+        options={countryOptions}
+        value={country}
+        onchange={handleCountryChange}>
+    </lightning-combobox>
+
+    <lightning-input type="tel" 
+        label="Phone number"
+        name="phone3"
+        value={phone} 
+        pattern="[0-9]{10}"
+        onchange={handlePhoneChange}>
+    </lightning-input>
+</template>
